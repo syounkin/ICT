@@ -1,3 +1,37 @@
+# This fiel creates 13 objects
+# [1] "baselineSummary" "carMiles"        "co2data"         "death"
+# [5] "idata"           "milesCycled"     "sdata"           "temp"
+# [9] "tp_mode"         "tripMode"        "tripTime"        "yll"
+#[ 13] "yll_red"
+
+# idata: A data frame created from mmets_var.csv
+
+# "ID","baseline_mmet","MS2_ebik0_eq0","MS4_ebik0_eq0","MS8_ebik0_eq0","MS16_ebik0_eq0","MS32_ebik0_eq0","MS64_ebik0_eq0","MS2_ebik0_eq1","MS4_ebik0_eq1","MS8_ebik0_eq1","MS16_ebik0_eq1","MS32_ebik0_eq1","MS64_ebik0_eq1","MS2_ebik1_eq0","MS4_ebik1_eq0","MS8_ebik1_eq0","MS16_ebik1_eq0","MS32_ebik1_eq0","MS64_ebik1_eq0","MS2_ebik1_eq1","MS4_ebik1_eq1","MS8_ebik1_eq1","MS16_ebik1_eq1","MS32_ebik1_eq1","MS64_ebik1_eq1","age_group","Sex_B01ID","EthGroupTS_B02ID","NSSec_B03ID","MainMode_Reduced"
+
+# sdata: A data frame created from ICT_aggr.csv
+
+# FileName,MS,ebike,equity,% of trips by bicycle,% cyclists in the total population,Miles cycled per person per week,Car miles cycled  per week,Marginal METs per person per week,Years of Life Lost (YLL),Car miles per person per week,Car miles reduced per person per week,CO2 (kg) from car travel per person per week
+
+# baselineSummary: The first row of sdata
+
+# tp_mode: a data frame mapping transport mode to transport mode code
+
+# yll, death, yll_red: data frames created from yll_agg_u.csv, death_agg_u.csv, yll_red_agg_u.csv
+
+# carMiles: a data frame created from carMiles_var1.csv
+
+# "ID","baseline_carMiles","MS2_ebik0_eq0","MS4_ebik0_eq0","MS8_ebik0_eq0","MS16_ebik0_eq0","MS32_ebik0_eq0","MS64_ebik0_eq0","MS2_ebik0_eq1","MS4_ebik0_eq1","MS8_ebik0_eq1","MS16_ebik0_eq1","MS32_ebik0_eq1","MS64_ebik0_eq1","MS2_ebik1_eq0","MS4_ebik1_eq0","MS8_ebik1_eq0","MS16_ebik1_eq0","MS32_ebik1_eq0","MS64_ebik1_eq0","MS2_ebik1_eq1","MS4_ebik1_eq1","MS8_ebik1_eq1","MS16_ebik1_eq1","MS32_ebik1_eq1","MS64_ebik1_eq1","age_group","Sex_B01ID","EthGroupTS_B02ID","NSSec_B03ID","MainMode_Reduced"
+
+# milesCycled:
+
+# tripMode:
+
+# tripTime:
+
+# co2data:
+
+# temp:
+
 library(stringr)
 
 idata <- read.csv("data/csv/mmets_var.csv", as.is = T)
@@ -45,7 +79,7 @@ tripTime <- (subset(tripTime, !(X %in% temp$rn) ))
 # # Reduce the number of modes to 4
 # # walk, bicycle, car, others
 # lookup <- data.frame(mode=c(1.0,2.0,2.5,3.0,4.0,5.0,6.0,7.0),red_mode=c(1.0,2.0,2.0,3.0,3.0,4.0,4.0,4.0))
-# 
+#
 # # Replace number of modes in each of the scenarios and the baseline to 4
 # for (i in 7:31){
 #   tripMode[,i] <- lookup$red_mode[match(tripMode[,i], lookup$mode)]
